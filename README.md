@@ -50,7 +50,11 @@ Are you bored? Do you need to find something to do? PlaceFinder can help you:
 [Project Board](https://github.com/users/Fastovich/projects/2/views/1)
 
 ## Scrum Roles
-Scrum roles and the individuals who will fill those roles will be determined and communicated later.
+- Product owner: Lucas Fastovich
+- Scrum Master: Colby Nolasco
+- DevOps: Zach Stenger
+- Developer: Ahrrian Motakef
+
 
 ## Standups
 Weekly standups will be held at 1:30pm on Sundays over teams, with reminders and meeting schedules created to avoid missing the meeting
