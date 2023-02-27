@@ -10,18 +10,47 @@
         android:id="@+id/textview_second"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/button_second"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button_second"
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="290dp"
+        android:layout_height="498dp"
+        tools:layout_editor_absoluteX="60dp"
+        tools:layout_editor_absoluteY="-35dp"
+        tools:src="@tools:sample/backgrounds/scenic" />
+
+    <SearchView
+        android:id="@+id/CurrentLoc"
+        android:layout_width="150dp"
+        android:layout_height="0dp"
+        tools:layout_editor_absoluteX="117dp"
+        tools:layout_editor_absoluteY="54dp" />
+
+    <TextView
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/previous"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textview_second" />
+        android:text="ParkName"
+        tools:layout_editor_absoluteX="60dp"
+        tools:layout_editor_absoluteY="321dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ParkAddress"
+        tools:layout_editor_absoluteX="62dp"
+        tools:layout_editor_absoluteY="344dp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Park Description"
+        tools:layout_editor_absoluteX="62dp"
+        tools:layout_editor_absoluteY="368dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
