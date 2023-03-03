@@ -7,4 +7,6 @@ import retrofit2.http.GET
 interface IParkDAO {
     @GET("JSON/")
     fun getAllParks() : Call<List<Park>>
+
+
 }
