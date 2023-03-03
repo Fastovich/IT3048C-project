@@ -22,14 +22,14 @@ import com.example.placefinder.ui.theme.ParkFinderTheme
                         modifier = Modifier.fillMaxSize(),
                         color = MaterialTheme.colors.background
                     ) {
-                        Greeting("Android")
+                        LogActivity("Android")
                     }
                 }
         }
     }
 }
 @Composable
-fun Greeting(name: String) {
+fun LogActivity(name: String) {
     Text(text = "Hello $name!")
 }
 
@@ -37,6 +37,6 @@ fun Greeting(name: String) {
 @Composable
 fun DefaultPreview() {
     PlaceFinderTheme {
-        Greeting("Android")
+        LogActivity("Android")
     }
 }
