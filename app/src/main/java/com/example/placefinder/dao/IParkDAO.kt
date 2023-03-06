@@ -5,7 +5,7 @@ import retrofit2.Call
 import retrofit2.http.GET
 
 interface IParkDAO {
-    @GET("JSON/parks")
+    @GET("JSON/park")
     fun getAllParks() : Call<ArrayList<Park>>
 
 }
