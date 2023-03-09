@@ -8,8 +8,11 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.withContext
 import retrofit2.awaitResponse
 
-class ParkServices {
-    suspend fun fetchParks(): List<Park>? {
+interface IParkService {
+    suspend fun fetchParks(): List<Park>?
+}
+class ParkService: IParkService {
+    override suspend fun fetchParks(): List<Park>? {
 
         return withContext(Dispatchers.IO) {
             val retrofit = RetrofitClientInstance.retrofitInstance?.create(IParkDAO::class.java)
