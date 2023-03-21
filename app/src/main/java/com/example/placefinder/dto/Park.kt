@@ -1,9 +1,11 @@
 package com.example.placefinder.dto
 
-data class Park (var stateCode: String, var parkName: String) {
+import com.google.gson.annotations.SerializedName
+
+data class Park (var stateCode: String,@SerializedName("city") var cityName: String) {
 
     override fun toString(): String {
-        return "$parkName $stateCode"
+        return "$cityName $stateCode"
     }
 
 }

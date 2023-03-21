@@ -14,7 +14,8 @@ class MainViewModel: ViewModel() {
     fun fetchParks() {
         viewModelScope.launch {
             var innerPark = parkService.fetchParks()
-            parks.postValue(innerPark)
+            parks.postValue(innerPark!!)
         }
     }
+
 }
