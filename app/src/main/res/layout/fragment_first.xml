@@ -6,23 +6,72 @@
     android:layout_height="match_parent"
     tools:context=".FirstFragment">
 
-    <TextView
-        android:id="@+id/textview_first"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_first_fragment"
-        app:layout_constraintBottom_toTopOf="@id/button_first"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <SearchView
+        android:id="@+id/CurrentLoc"
+        android:layout_width="150dp"
+        android:layout_height="0dp"
+        tools:layout_editor_absoluteX="116dp"
+        tools:layout_editor_absoluteY="94dp" />
 
-    <Button
-        android:id="@+id/button_first"
+    <ImageView
+        android:id="@+id/imageView15"
+        android:layout_width="225dp"
+        android:layout_height="307dp"
+        tools:layout_editor_absoluteX="76dp"
+        tools:layout_editor_absoluteY="124dp"
+        tools:src="@tools:sample/backgrounds/scenic" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="58dp"
+        android:layout_height="61dp"
+        tools:layout_editor_absoluteX="25dp"
+        tools:layout_editor_absoluteY="81dp"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="81dp"
+        android:theme="@style/Theme.PlaceFinder.AppBarOverlay">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_launcher_background" />
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/Theme.PlaceFinder.PopupOverlay" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <TextView
+        android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/next"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textview_first" />
+        android:text="Activity1:"
+        tools:layout_editor_absoluteX="40dp"
+        tools:layout_editor_absoluteY="165dp" />
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="225dp"
+        android:layout_height="307dp"
+        tools:layout_editor_absoluteX="76dp"
+        tools:layout_editor_absoluteY="571dp"
+        tools:src="@tools:sample/backgrounds/scenic" />
+
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="225dp"
+        android:layout_height="307dp"
+        tools:layout_editor_absoluteX="76dp"
+        tools:layout_editor_absoluteY="363dp"
+        tools:src="@tools:sample/backgrounds/scenic" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
