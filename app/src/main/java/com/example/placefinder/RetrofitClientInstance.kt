@@ -4,7 +4,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitClientInstance {
     private var retrofit: Retrofit? = null
-    private val PARK_API_URL = "https://developer.nps.gov/"
+    private const val PARK_API_URL = "https://developer.nps.gov"
 
     val retrofitInstance: Retrofit?
         get() {

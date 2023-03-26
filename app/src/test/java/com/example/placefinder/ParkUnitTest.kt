@@ -2,13 +2,14 @@ package com.example.placefinder
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
-import com.example.placefinder.dto.Park
+import com.example.placefinder.dto.Address
 import com.example.placefinder.service.ParkService
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.impl.annotations.MockK
 import junit.framework.TestCase.assertNotNull
 import junit.framework.TestCase.assertTrue
+import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.newSingleThreadContext
@@ -33,8 +34,9 @@ class ParkUnitTest {
     var rule: TestRule = InstantTaskExecutorRule()
     lateinit var mvm: MainViewModel
     private lateinit var parkService: ParkService
-    var allParks : List<Park>? = ArrayList<Park>()
+    var allParks : List<Address>? = ArrayList<Address>()
 
+    @OptIn(DelicateCoroutinesApi::class)
     private val mainThreadSurrogate = newSingleThreadContext("UI thread")
 
     @MockK
@@ -55,16 +57,17 @@ class ParkUnitTest {
     }
 
     @Test
-    fun `Given a park dto when stateCode is WY and cityName is Yellowstone National Park then StateCode is WY and city name is Yellowstone National Park`(){
-        var park = Park("WY", "Yellowstone National Park")
-        assertTrue(park.stateCode.equals("WY"))
-        assertTrue(park.cityName.equals("Yellowstone National Park"))
+    fun `Given a park dto when City = Wilberforce then park = stateCode OH and City Wilberforce`(){
+        var park = Address(stateCode = "OH",city = "Wilberforce")
+        assertTrue(park.stateCode.equals("OH") )
+        assertTrue(park.city.equals("Wilberforce"))
+
     }
 
     @Test
-    fun `Given a park dto when stateCode is WY and cityName is Yellowstone National Park then output is city state`(){
-        var park = Park("WY", "Yellowstone National Park")
-        assertTrue(park.toString().equals("Yellowstone National Park WY"))
+    fun `Given a park dto when stateCode = OH and City = Wilberforce then output OH Wilberforce`(){
+        var park = Address(stateCode = "OH", city = "Wilberforce")
+        assertTrue(park.toString().equals( "OH Wilberforce" ))
     }
 
     @Test
@@ -90,17 +93,15 @@ class ParkUnitTest {
     }
 
     @Test
-    fun `Given a view model with live data when populated with Parks then results should contain Charles Young Buffalo Soldiers National Monument`() {
+    fun `Given a view model with live data when populated with Parks then results should contain Wilberforce`() {
         givenViewModelIsInitializedWithMockData()
         whenJSONDataIsReadAndParsed()
         thenResultsShouldContainCharlesYoungBuffaloSoldiersNationalMonument()
     }
 
     private fun givenViewModelIsInitializedWithMockData() {
-        val parks = ArrayList<Park>()
-        parks.add(Park("OH","Charles Young Buffalo Soldiers National Monument"))
-        parks.add(Park("WY","Yellowstone National Park Headquarters"))
-        parks.add(Park("CA", "San Francisco"))
+        val parks = ArrayList<Address>()
+        parks.add(Address(stateCode = "OH", city = "Wilberforce"))
 
         coEvery { mockParkService.fetchParks() } returns parks
 
@@ -112,10 +113,10 @@ class ParkUnitTest {
     }
 
     private fun thenResultsShouldContainCharlesYoungBuffaloSoldiersNationalMonument(){
-        var allParks : List<Park>? = ArrayList<Park>()
+        var allParks : List<Address>? = ArrayList<Address>()
         val latch = CountDownLatch(1);
-        val observer = object : Observer<List<Park>> {
-            override fun onChanged(t: List<Park>) {
+        val observer = object : Observer<List<Address>> {
+            override fun onChanged(t: List<Address>) {
                 allParks = t
                 latch.countDown()
                 mvm.parks.removeObserver(this)
@@ -125,6 +126,6 @@ class ParkUnitTest {
 
         latch.await(1, TimeUnit.SECONDS)
         assertNotNull(allParks)
-        assertTrue(allParks!!.contains(Park("OH", "Charles Young Buffalo Soldiers National Monument")))
+        assertTrue(allParks!!.contains(Address(stateCode = "OH", city = "Wilberforce")))
     }
 }

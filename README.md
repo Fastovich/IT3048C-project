@@ -58,3 +58,18 @@ Are you bored? Do you need to find something to do? PlaceFinder can help you:
 
 ## Standups
 Weekly standups will be held at 1:30pm on Sundays over teams, with reminders and meeting schedules created to avoid missing the meeting
+
+## Current Big Issues
+- data needed to connect to NPS Nested complex API and able to be called.
+  - figuring out if API needs more classes to handle data around.
+
+
+## Current Needs
+- GPS implementation
+- Firebase Implementation once API is sorted and implemented
+- Weather API added and called based on GPS and Park location (from api)
+- Connection of PlaceFinderApplication to layouts designs or created
+- Comments on all items in code
+
+## Current Testing
+- API connection currently testing on Address to get stateCode and City

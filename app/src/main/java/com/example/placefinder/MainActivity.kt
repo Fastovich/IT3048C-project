@@ -25,7 +25,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.PopupProperties
-import com.example.placefinder.dto.Park
+import com.example.placefinder.dto.Address
 import com.example.placefinder.ui.theme.PlaceFinderTheme
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -75,8 +75,8 @@ class MainActivity : ComponentActivity() {
     }
     
     @Composable
-    fun Parks(parksIn: List<Park>) {
-        var stateCode : String by remember { mutableStateOf("WY") }
+    fun Parks(parksIn: List<Address>) {
+        var states : String by remember { mutableStateOf("OH") }
         var expanded by remember { mutableStateOf(false) }
 
         Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
@@ -90,13 +90,13 @@ class MainActivity : ComponentActivity() {
                 horizontalArrangement = Arrangement.Center,
                 verticalAlignment = Alignment.CenterVertically
             ){
-                Text(text = stateCode, fontSize = 18.sp, modifier = Modifier.padding(end = 8.dp))
+                Text(text = states, fontSize = 18.sp, modifier = Modifier.padding(end = 8.dp))
                 Icon(imageVector = Icons.Filled.ArrowDropDown, contentDescription = "")
                 DropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
                     parksIn.forEach {
                         park -> DropdownMenuItem(onClick = {
                             expanded = false
-                            stateCode = park.toString()
+                            states = park.toString()
                     }) {
                         Text(text = park.toString())
                     } 
@@ -105,6 +105,7 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
+
     @Preview(showBackground = true)
     @Composable
     fun DefaultPreview() {
@@ -117,11 +118,11 @@ class MainActivity : ComponentActivity() {
 }
 
     var strSelectedPark = "no State Selected"
-    var selectedPark = Park("", "")
+    var selectedPark = Address(stateCode = "", city = "")
 
     @Composable
-    fun TextFieldWithDropdownUsage(parksIn: List<Park>){
-        val dropDownOptions = remember { mutableStateOf(listOf<Park>()) }
+    fun TextFieldWithDropdownUsage(parksIn: List<Address>){
+        val dropDownOptions = remember { mutableStateOf(listOf<Address>()) }
         val textFieldValue = remember { mutableStateOf(TextFieldValue()) }
         val dropDownExpanded = remember { mutableStateOf(false) }
         
@@ -154,7 +155,7 @@ class MainActivity : ComponentActivity() {
         setValue: (TextFieldValue) -> Unit,
         onDismissRequest: () -> Unit,
         dropDownExpanded: Boolean,
-        list: List<Park>,
+        list: List<Address>,
         label: String = ""
     ){
         Box(modifier) {
