@@ -36,15 +36,15 @@ class MainActivity : ComponentActivity() {
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
             setContent {
-                viewModel.fetchParks()
-                val parks by viewModel.parks.observeAsState(initial = emptyList())
+                var parks by remember { mutableStateOf(emptyList<Address>()) }
+                LaunchedEffect(Unit) {
+                    parks = viewModel.fetchParks()
+                }
                 PlaceFinderTheme {
-                    // A surface container using the 'background' color from the theme
                     Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
                         Greeting("Android")
-                    }
-                    parks?.let { Parks(it) }
-                    parks?.let { TextFieldWithDropdownUsage(it) }
+                        parks.let { Parks(it) }
+                        parks.let { TextFieldWithDropdownUsage(it) }
                     ButtonBar()
                 }
         }
