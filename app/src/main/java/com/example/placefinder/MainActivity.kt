@@ -73,7 +73,7 @@ class MainActivity : ComponentActivity() {
             Text(text = "Sample", color = Color.White)
         }
     }
-    
+
     @Composable
     fun Parks(parksIn: List<Address>) {
         var states : String by remember { mutableStateOf("OH") }
@@ -99,9 +99,18 @@ class MainActivity : ComponentActivity() {
                             states = park.toString()
                     }) {
                         Text(text = park.toString())
-                    } 
+                    }
                     }
                 }
+            }
+        }
+    }
+
+    @Composable
+    fun ParksList(parks: List<Address>) {
+        LazyColumn {
+            items(parks) { park ->
+                Parks(park)
             }
         }
     }
