@@ -25,8 +25,9 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.PopupProperties
-import com.example.placefinder.dto.Address
+import com.example.placefinder.dto.Park
 import com.example.placefinder.ui.theme.PlaceFinderTheme
+import com.google.android.gms.identity.intents.Address
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : ComponentActivity() {
@@ -37,14 +38,14 @@ class MainActivity : ComponentActivity() {
             super.onCreate(savedInstanceState)
             setContent {
                 viewModel.fetchParks()
-                val parks by viewModel.parks.observeAsState(initial = emptyList())
+                val parks by viewModel.parks.observeAsState(initial = emptyList<Address>())
                 PlaceFinderTheme {
                     // A surface container using the 'background' color from the theme
                     Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
                         Greeting("Android")
                     }
-                    Parks(parks)
-                    TextFieldWithDropdownUsage(parks)
+                    Parks(parks as List<Address>)
+                    TextFieldWithDropdownUsage(parks as List<Address>)
                     ButtonBar()
                 }
         }
@@ -118,7 +119,7 @@ class MainActivity : ComponentActivity() {
 }
 
     var strSelectedPark = "no State Selected"
-    var selectedPark = Address(stateCode = "", city = "")
+    var selectedPark = Park.Datum.Address(stateCode = "", city = "")
 
     @Composable
     fun TextFieldWithDropdownUsage(parksIn: List<Address>){
