@@ -11,95 +11,128 @@
         android:id="@+id/CurrentLoc"
         android:layout_width="150dp"
         android:layout_height="0dp"
-        tools:layout_editor_absoluteX="130dp"
-        tools:layout_editor_absoluteY="77dp" />
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="77dp"
+        android:layout_marginEnd="131dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="58dp"
         android:layout_height="61dp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="6dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="6dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
     <com.google.android.gms.maps.MapView
         android:id="@+id/mapView"
         android:layout_width="260dp"
         android:layout_height="260dp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="75dp"
-        tools:layout_editor_absoluteY="196dp" />
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="76dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/editTextTextPersonName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="101dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Find Somewhere Nearby:"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="138dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CurrentLoc" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="157dp"
         android:layout_height="230dp"
-        android:tint="#000000"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="29dp"
+        android:tint="@color/black"
         android:tintMode="add"
-        tools:layout_editor_absoluteX="31dp"
-        tools:layout_editor_absoluteY="485dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mapView"
         tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="116dp"
         android:text="Activity1"
-        tools:layout_editor_absoluteX="84dp"
-        tools:layout_editor_absoluteY="588dp" />
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/imageView5"
+        app:layout_constraintTop_toBottomOf="@id/mapView" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="68dp"
         android:text="Activity2"
-        tools:layout_editor_absoluteX="279dp"
-        tools:layout_editor_absoluteY="588dp" />
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/editTextTextPersonName2"
+        app:layout_constraintTop_toBottomOf="@id/mapView" />
 
     <ImageView
         android:id="@+id/imageView6"
-        android:layout_width="157dp"
+        android:layout_width="156dp"
         android:layout_height="230dp"
-        tools:layout_editor_absoluteX="31dp"
-        tools:layout_editor_absoluteY="607dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="76dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView5"
         tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
     <ImageView
         android:id="@+id/imageView5"
         android:layout_width="157dp"
         android:layout_height="230dp"
-        android:tint="#000000"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="28dp"
+        android:tint="@color/black"
         android:tintMode="add"
-        tools:layout_editor_absoluteX="224dp"
-        tools:layout_editor_absoluteY="485dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mapView"
         tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
     <ImageView
         android:id="@+id/imageView7"
         android:layout_width="157dp"
         android:layout_height="230dp"
-        tools:layout_editor_absoluteX="224dp"
-        tools:layout_editor_absoluteY="607dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
         tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
     <EditText
         android:id="@+id/editTextTextPersonName2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Parks Near You:"
-        tools:layout_editor_absoluteX="31dp"
-        tools:layout_editor_absoluteY="496dp" />
+        android:textAlignment="textStart"
+        app:layout_constraintEnd_toStartOf="@+id/imageView5"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mapView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
