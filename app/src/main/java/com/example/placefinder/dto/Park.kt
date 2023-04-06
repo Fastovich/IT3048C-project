@@ -44,7 +44,11 @@ package com.example.placefinder.dto
             val type: String = "",
             val line3: String = "",
             val line2: String = ""
-            )
+            ){
+            override fun toString(): String {
+                return "$stateCode $city"
+            }
+        }
         data class Contacts (
             val phoneNumbers: List<PhoneNumber>,
             val emailAddresses: List<EmailAddress>

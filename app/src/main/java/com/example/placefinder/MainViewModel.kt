@@ -9,7 +9,7 @@ import com.example.placefinder.service.ParkService
 import kotlinx.coroutines.launch
 
 class MainViewModel: ViewModel() {
-    var parks = MutableLiveData<List<Park.Datum.Address>?>()
+    var parks = MutableLiveData<Park.Datum.Address>()
     var parkService : IParkService = ParkService()
 
     fun fetchParks() {

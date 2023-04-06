@@ -35,7 +35,6 @@ Are you bored? Do you need to find something to do? PlaceFinder can help you:
 ## Class Diagram Description 
 - `ParkSearchRequest`: a data class that represents the user's search criteria, like location and activity.
 - `ParkSearchResult`: represents the search results, including a list of parks that meet the user's search criteria.
-- `Park`: represents a single park and its properties, such as name, location, and activities offered.
 - `ParkDetails`: represents detailed information about a specific park, including its address, hours of operation, and list of available activities.
 - `SearchParkActivity`: An activity class that handles the user interface for searching for parks, including displaying the search form and presenting the search results.
 - `ParkListFragment`: A fragment class that displays a list of parks, including their names and locations.
@@ -59,17 +58,19 @@ Are you bored? Do you need to find something to do? PlaceFinder can help you:
 ## Standups
 Weekly standups will be held at 1:30pm on Sundays over teams, with reminders and meeting schedules created to avoid missing the meeting
 
-## Current Big Issues
-- data needed to connect to NPS Nested complex API and able to be called.
-  - figuring out if API needs more classes to handle data around.
+## Current Big Bugs
 
 
 ## Current Needs
+
 - GPS implementation
+
 - Firebase Implementation once API is sorted and implemented
+
 - Weather API added and called based on GPS and Park location (from api)
+
 - Connection of PlaceFinderApplication to layouts designs or created
+
 - Comments on all items in code
 
 ## Current Testing
-- API connection currently testing on Address to get stateCode and City

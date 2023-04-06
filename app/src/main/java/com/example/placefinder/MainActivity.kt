@@ -33,24 +33,26 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class MainActivity : ComponentActivity() {
 
     private val viewModel: MainViewModel by viewModel<MainViewModel>()
+    //private var firebaseUser: FirebaseUser? = FirebaseAuth.getInstance().currentUser
 
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
             setContent {
                 viewModel.fetchParks()
-                val parks by viewModel.parks.observeAsState(initial = emptyList<Address>())
+                val parks by viewModel.parks.observeAsState(initial = Park.Datum.Address())
                 PlaceFinderTheme {
                     // A surface container using the 'background' color from the theme
                     Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
                         Greeting("Android")
                     }
-                    Parks(parks as List<Address>)
-                    TextFieldWithDropdownUsage(parks as List<Address>)
+                    Parks(parks as Park.Datum.Address)
+                    TextFieldWithDropdownUsage(parks as Park.Datum.Address)
                     ButtonBar()
                 }
         }
     }
 }
+
     @Composable
     fun Greeting(name: String) {
         Text(text = "Hello $name!")
@@ -76,7 +78,7 @@ class MainActivity : ComponentActivity() {
     }
     
     @Composable
-    fun Parks(parksIn: List<Address>) {
+    fun Parks(parksIn: Park.Datum.Address) {
         var states : String by remember { mutableStateOf("OH") }
         var expanded by remember { mutableStateOf(false) }
 
@@ -94,18 +96,11 @@ class MainActivity : ComponentActivity() {
                 Text(text = states, fontSize = 18.sp, modifier = Modifier.padding(end = 8.dp))
                 Icon(imageVector = Icons.Filled.ArrowDropDown, contentDescription = "")
                 DropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
-                    parksIn.forEach {
-                        park -> DropdownMenuItem(onClick = {
-                            expanded = false
-                            states = park.toString()
-                    }) {
-                        Text(text = park.toString())
-                    } 
+
                     }
                 }
             }
         }
-    }
 
     @Preview(showBackground = true)
     @Composable
@@ -122,7 +117,7 @@ class MainActivity : ComponentActivity() {
     var selectedPark = Park.Datum.Address(stateCode = "", city = "")
 
     @Composable
-    fun TextFieldWithDropdownUsage(parksIn: List<Address>){
+    fun TextFieldWithDropdownUsage(parksIn: Park.Datum.Address){
         val dropDownOptions = remember { mutableStateOf(listOf<Address>()) }
         val textFieldValue = remember { mutableStateOf(TextFieldValue()) }
         val dropDownExpanded = remember { mutableStateOf(false) }
@@ -135,7 +130,7 @@ class MainActivity : ComponentActivity() {
             strSelectedPark = value.text
             dropDownExpanded.value = true
             textFieldValue.value = value
-            dropDownOptions.value = parksIn.filter { it.toString().startsWith(value.text) && it.toString() != value.text }.take(3)
+            dropDownOptions.value
         }
         
         TextFieldWithDropdown(

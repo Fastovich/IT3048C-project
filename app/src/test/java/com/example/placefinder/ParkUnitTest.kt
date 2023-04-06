@@ -9,7 +9,6 @@ import io.mockk.coEvery
 import io.mockk.impl.annotations.MockK
 import junit.framework.TestCase.assertNotNull
 import junit.framework.TestCase.assertTrue
-import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.newSingleThreadContext
@@ -31,7 +30,7 @@ class ParkUnitTest {
     var rule: TestRule = InstantTaskExecutorRule()
     lateinit var mvm: MainViewModel
     lateinit var parkService: ParkService
-    var allParks : List<Park.Datum.Address>? = ArrayList<Park.Datum.Address>()
+    var allParks : Park.Datum.Address = Park.Datum.Address()
 
     private val mainThreadSurrogate = newSingleThreadContext("UI thread")
 
@@ -96,8 +95,8 @@ class ParkUnitTest {
 
     private fun givenViewModelIsInitializedWithMockData() {
         val parks = Park.Datum.Address(stateCode = "OH", city = "Wilberforce")
-        coEvery { mockParkService.fetchParks() } returns listOf(parks)
-        mvm = MainViewModel(parkService = mockParkService)
+        coEvery { mockParkService.fetchParks() } returns parks
+        mvm.parkService = mockParkService
     }
 
     private fun whenJSONDataIsReadAndParsed(){
@@ -105,10 +104,10 @@ class ParkUnitTest {
     }
 
     private fun thenResultsShouldContainSamplePark(){
-        var allParks : List<Park.Datum.Address>? = ArrayList<Park.Datum.Address>()
+        var allParks : Park.Datum.Address = Park.Datum.Address()
         val latch = CountDownLatch(1)
-        val observer = object : Observer<List<Park.Datum.Address>?> {
-            override fun onChanged(t: List<Park.Datum.Address>?) {
+        val observer = object : Observer<Park.Datum.Address> {
+            override fun onChanged(t: Park.Datum.Address) {
                 allParks = t
                 latch.countDown()
                 mvm.parks.removeObserver(this)
@@ -119,6 +118,12 @@ class ParkUnitTest {
         latch.await(1, TimeUnit.SECONDS)
         assertNotNull(allParks)
         assertTrue(true)
-        assertTrue(allParks!!.contains(Park.Datum.Address(stateCode = "OH", city= "Wilberforce")))
+        Assert.assertTrue(true)
+        var containsSamplePark = false
+        if (allParks.stateCode == "OH" && allParks.city == "Wilberforce"){
+            containsSamplePark = true
+        }
+        Assert.assertTrue(containsSamplePark)
+        println("\n[parks = ${allParks}]\n")
     }
 }

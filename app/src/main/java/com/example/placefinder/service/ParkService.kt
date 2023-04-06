@@ -9,16 +9,16 @@ import kotlinx.coroutines.withContext
 import retrofit2.awaitResponse
 
 interface IParkService {
-    suspend fun fetchParks(): List<Park.Datum.Address>?
+    suspend fun fetchParks(): Park.Datum.Address
 }
 class ParkService: IParkService {
-    override suspend fun fetchParks(): List<Park.Datum.Address>? {
+    override suspend fun fetchParks(): Park.Datum.Address {
 
         return withContext(Dispatchers.IO) {
             val retrofit = RetrofitClientInstance.retrofitInstance?.create(IParkDAO::class.java)
             val parks = async { retrofit?.getAllParks() }
-
-            return@withContext parks.await()?.awaitResponse()?.body()
+            var result = parks.await()?.awaitResponse()?.body()
+            return@withContext result!!
         }
     }
 }
