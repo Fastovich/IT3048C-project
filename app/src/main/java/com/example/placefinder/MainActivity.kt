@@ -1,6 +1,7 @@
 package com.example.placefinder
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -26,19 +27,29 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.PopupProperties
 import com.example.placefinder.dto.Park
+import com.example.placefinder.dto.User
 import com.example.placefinder.ui.theme.PlaceFinderTheme
+import com.firebase.ui.auth.AuthUI
+import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract
+import com.firebase.ui.auth.data.model.FirebaseAuthUIAuthenticationResult
 import com.google.android.gms.identity.intents.Address
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : ComponentActivity() {
 
     private val viewModel: MainViewModel by viewModel<MainViewModel>()
-    //private var firebaseUser: FirebaseUser? = FirebaseAuth.getInstance().currentUser
+    private var firebaseUser: FirebaseUser? = FirebaseAuth.getInstance().currentUser
 
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
             setContent {
                 viewModel.fetchParks()
+                firebaseUser?.let{
+                    val user = User(it.uid, "")
+                    viewModel.user = user
+                }
                 val parks by viewModel.parks.observeAsState(initial = Park.Datum.Address())
                 PlaceFinderTheme {
                     // A surface container using the 'background' color from the theme
@@ -51,7 +62,7 @@ class MainActivity : ComponentActivity() {
                 }
         }
     }
-}
+
 
     @Composable
     fun Greeting(name: String) {
@@ -192,3 +203,36 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
+
+    // to be implemented into Menus current just backend code.
+    fun signIn(){
+        val providers = arrayListOf(
+            AuthUI.IdpConfig.EmailBuilder().build()
+        )
+
+        val signInIntent =
+            AuthUI.getInstance().createSignInIntentBuilder().setAvailableProviders(providers)
+                .build()
+
+        signInLauncher.launch(signInIntent)
+    }
+    // page not implemented yet, setting up for future.
+    private val signInLauncher = registerForActivityResult(
+        FirebaseAuthUIActivityResultContract()
+    ) { res ->
+        this.signInResult(res)
+    }
+    private fun signInResult(result: FirebaseAuthUIAuthenticationResult) {
+        val response = result.idpResponse
+        if (result.resultCode == ComponentActivity.RESULT_OK) {
+            firebaseUser = FirebaseAuth.getInstance().currentUser
+            firebaseUser?.let {
+                val user = User(it.uid, it.displayName)
+                viewModel.user = user
+                viewModel.saveUser()
+            }
+        } else {
+            Log.e("MainActivity.kt", "Error Logging in " + response?.error?.errorCode)
+        }
+    }
+ }

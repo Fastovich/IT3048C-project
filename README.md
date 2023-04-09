@@ -65,7 +65,6 @@ Weekly standups will be held at 1:30pm on Sundays over teams, with reminders and
 
 - GPS implementation
 
-- Firebase Implementation once API is sorted and implemented
 
 - Weather API added and called based on GPS and Park location (from api)
 
@@ -74,3 +73,9 @@ Weekly standups will be held at 1:30pm on Sundays over teams, with reminders and
 - Comments on all items in code
 
 ## Current Testing
+
+## Current Implementation
+
+- Bindings of pages to MainActivity.kt
+
+- Firebase & Firestore
