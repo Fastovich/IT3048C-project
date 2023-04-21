@@ -12,55 +12,65 @@
         android:id="@+id/imageButton8"
         android:layout_width="188dp"
         android:layout_height="127dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="24dp"
         android:scaleType="centerCrop"
         android:tint="#6E6969"
         android:tintMode="multiply"
-        app:srcCompat="@drawable/temeculagolfclub_courses_stonehouse_01_5e1f94eb37c32"
-        tools:layout_editor_absoluteX="31dp"
-        tools:layout_editor_absoluteY="411dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton6"
+        app:srcCompat="@drawable/ic_launcher_background" />
 
     <ImageButton
         android:id="@+id/imageButton9"
         android:layout_width="198dp"
         android:layout_height="127dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="24dp"
         android:scaleType="centerCrop"
-        android:tint="#676262"
+        android:tint="#686464"
         android:tintMode="multiply"
-        app:srcCompat="@drawable/temeculagolfclub_courses_creek_01_5e1f95bc6454e"
-        tools:layout_editor_absoluteX="250dp"
-        tools:layout_editor_absoluteY="411dp" />
+        app:layout_constraintStart_toEndOf="@+id/imageButton8"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton7"
+        app:srcCompat="@drawable/temeculagolfclub_courses_creek_01_5e1f95bc6454e" />
 
     <Button
         android:id="@+id/button8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="27dp"
         android:backgroundTint="#E1DFDF"
         android:text="Activities"
         android:textColor="#323030"
-        tools:layout_editor_absoluteX="291dp"
-        tools:layout_editor_absoluteY="117dp" />
+        app:layout_constraintStart_toEndOf="@+id/button9"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
 
     <Button
         android:id="@+id/button9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="27dp"
         android:backgroundTint="#4CAF50"
         android:backgroundTintMode="src_in"
         android:text="Golf"
         android:textColor="#323030"
-        app:strokeColor="#1E1E1E"
-        tools:layout_editor_absoluteX="172dp"
-        tools:layout_editor_absoluteY="117dp" />
+        app:layout_constraintStart_toEndOf="@+id/button10"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
+        app:strokeColor="#1E1E1E" />
 
     <Button
         android:id="@+id/button10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="27dp"
         android:backgroundTint="#E1DFDF"
         android:text="Parks"
         android:textColor="#323030"
-        tools:layout_editor_absoluteX="52dp"
-        tools:layout_editor_absoluteY="117dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -76,54 +86,64 @@
         android:id="@+id/editTextTextPersonName"
         android:layout_width="297dp"
         android:layout_height="54dp"
+        android:layout_marginStart="41dp"
+        android:layout_marginTop="36dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Explore"
         android:textSize="34sp"
-        tools:layout_editor_absoluteX="41dp"
-        tools:layout_editor_absoluteY="36dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="10dp"
         android:backgroundTint="#E1DFDF"
         android:text="More"
         android:textColor="#323030"
-        tools:layout_editor_absoluteX="250dp"
-        tools:layout_editor_absoluteY="175dp" />
+        app:layout_constraintStart_toEndOf="@+id/button5"
+        app:layout_constraintTop_toBottomOf="@+id/button8" />
 
     <Button
         android:id="@+id/button5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="10dp"
         android:backgroundTint="#E1DFDF"
         android:text="Events"
         android:textColor="#323030"
-        tools:layout_editor_absoluteX="112dp"
-        tools:layout_editor_absoluteY="175dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button9" />
 
     <ImageButton
         android:id="@+id/imageButton7"
         android:layout_width="198dp"
         android:layout_height="127dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="37dp"
         android:scaleType="centerCrop"
         android:tint="#514F4F"
         android:tintMode="multiply"
-        app:srcCompat="@drawable/temeculagolfclub_courses_creek_01_5e1f95bc6454e"
-        tools:layout_editor_absoluteX="250dp"
-        tools:layout_editor_absoluteY="260dp" />
+        app:layout_constraintStart_toEndOf="@+id/imageButton6"
+        app:layout_constraintTop_toBottomOf="@+id/button6"
+        app:srcCompat="@drawable/temeculagolfclub_courses_creek_01_5e1f95bc6454e" />
 
     <ImageButton
         android:id="@+id/imageButton6"
         android:layout_width="188dp"
         android:layout_height="127dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="37dp"
         android:scaleType="centerCrop"
-        android:tint="#6E6969"
+        android:tint="@color/teal_700"
         android:tintMode="multiply"
-        app:srcCompat="@drawable/temeculagolfclub_courses_stonehouse_01_5e1f94eb37c32"
-        tools:layout_editor_absoluteX="31dp"
-        tools:layout_editor_absoluteY="260dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button5"
+        app:srcCompat="@drawable/ic_launcher_background" />
 
     <TextView
         android:id="@+id/textView"
@@ -142,8 +162,8 @@
         android:text="Temeuku Hills Golf"
         android:textColor="#DCD6D6"
         android:textSize="16sp"
-        tools:layout_editor_absoluteX="280dp"
-        tools:layout_editor_absoluteY="298dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textView15"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/textView5"
@@ -169,33 +189,38 @@
         android:id="@+id/editTextTextPersonName2"
         android:layout_width="389dp"
         android:layout_height="64dp"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="104dp"
         android:ems="10"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="42dp"
-        tools:layout_editor_absoluteY="642dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton8" />
 
     <ImageView
         android:id="@+id/imageView6"
         android:layout_width="71dp"
         android:layout_height="60dp"
-        app:srcCompat="@drawable/home"
-        tools:layout_editor_absoluteX="112dp"
-        tools:layout_editor_absoluteY="706dp" />
+        android:layout_marginStart="112dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2"
+        app:srcCompat="@drawable/ic_launcher_background" />
 
     <ImageView
         android:id="@+id/imageView9"
         android:layout_width="62dp"
         android:layout_height="61dp"
-        app:srcCompat="@drawable/search"
-        tools:layout_editor_absoluteX="202dp"
-        tools:layout_editor_absoluteY="706dp" />
+        android:layout_marginStart="19dp"
+        app:layout_constraintStart_toEndOf="@+id/imageView6"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2"
+        app:srcCompat="@drawable/ic_launcher_background" />
 
     <ImageView
         android:id="@+id/imageView7"
         android:layout_width="72dp"
         android:layout_height="58dp"
-        app:srcCompat="@drawable/settings"
-        tools:layout_editor_absoluteX="277dp"
-        tools:layout_editor_absoluteY="706dp" />
+        android:layout_marginStart="13dp"
+        app:layout_constraintStart_toEndOf="@+id/imageView9"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2"
+        app:srcCompat="@drawable/ic_launcher_background" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

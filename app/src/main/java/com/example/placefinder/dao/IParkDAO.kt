@@ -10,5 +10,5 @@ interface IParkDAO {
 
 
     @GET("/api/v1/parks?")
-    fun getAllParks(@Query("api_key")apiKey: String = BuildConfig.NPS_KEY) : Call<Park.Datum.Address>
+    fun getAllParks(@Query("api_key")apiKey: String = "7Um3kthXtcnkBdkZyuNu1GDXpDwHXxHRM0gtrQgQ") : Call<Park.Datum.Address>
 }
