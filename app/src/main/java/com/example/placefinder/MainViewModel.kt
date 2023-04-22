@@ -9,7 +9,6 @@ import com.example.placefinder.dto.User
 import com.example.placefinder.service.IParkService
 import com.example.placefinder.service.ParkService
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.FirebaseFirestoreSettings
 import kotlinx.coroutines.launch
 
 class MainViewModel: ViewModel() {
@@ -19,10 +18,6 @@ class MainViewModel: ViewModel() {
 
     private lateinit var firestore : FirebaseFirestore
 
-    init {
-        firestore = FirebaseFirestore.getInstance()
-        firestore.firestoreSettings = FirebaseFirestoreSettings.Builder().build()
-    }
     fun fetchParks() {
         viewModelScope.launch {
             var innerPark = parkService.fetchParks()
