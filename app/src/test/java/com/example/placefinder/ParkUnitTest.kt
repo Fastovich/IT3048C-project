@@ -19,13 +19,25 @@ import org.junit.*
 import org.junit.rules.TestRule
 import java.util.concurrent.CountDownLatch
 import java.util.concurrent.TimeUnit
+import androidx.test.ext.junit.runners.AndroidJUnit4
+import org.junit.runner.RunWith
+import org.junit.Rule
+import org.robolectric.annotation.Config
+
+
 
 /**
  * Example local unit test, which will execute on the development machine (host).
  *
  * See [testing documentation](http://d.android.com/tools/testing).
  */
+
+@RunWith(AndroidJUnit4::class)
+@Config(application = TestApplication::class)
 class ParkUnitTest {
+    @get:Rule
+    val firebaseInitRule = FirebaseInitRule()
+
     @get:Rule
     var rule: TestRule = InstantTaskExecutorRule()
     lateinit var mvm: MainViewModel
