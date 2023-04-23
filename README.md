@@ -49,10 +49,10 @@ Are you bored? Do you need to find something to do? PlaceFinder can help you:
 [Project Board](https://github.com/users/Fastovich/projects/2/views/1)
 
 ## Scrum Roles
-- Product owner, Devops: Lucas Fastovich
+- Product owner/Devops, Integration Specialist: Lucas Fastovich
 - Scrum Master, Devops: Colby Nolasco
-- UI Dev: Zach Stenger
-- Developer, Devops: Ahrrian Motakef
+- UI Specialist : Zach Stenger -- Quit
+- UI Specialist : Ahrrian Motakef
 
 
 ## Standups
