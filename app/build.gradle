@@ -73,7 +73,7 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:4.9.2'
 
     //firebase & Firestore with auth
-    implementation 'com.google.firebase:firebase-bom:31.4.0'
+    implementation platform('com.google.firebase:firebase-bom:31.2.2')
     implementation 'com.google.firebase:firebase-analytics-ktx'
     implementation 'com.google.firebase:firebase-firestore-ktx:24.4.5'
     implementation 'com.google.firebase:firebase-auth:21.2.0'
